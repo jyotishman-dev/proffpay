@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "skills": {
+    "banner-design": {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "digest": "sha256:9f7bed7047ee342b975722baa413058bb6ce0b34416b4c90befa6c4361f265d2",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    },
+    "brand": {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "digest": "sha256:262aa185a65cebbe18e8ea56ab0202fb8a0b9953b44242510dda386a46c98175",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    },
+    "design": {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "digest": "sha256:73b7309d600c75eb304e92e6d0f75456a81e723e586fb3d6a3bb4e9a2dd59c5e",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    },
+    "design-system": {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "digest": "sha256:06fbb5ecf8b47e70806ea3be127b5a73e2c511a3b3a41f45ad64ca657cbe9c04",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    },
+    "frontend-design": {
+      "source": "registry:anthropics/frontend-design",
+      "commit_sha": "ab7022c6e7a9e51ebcb85395a5bcf7c0e90f843a",
+      "digest": "sha256:9e8dd870253be6d0b01d79e990d0bbf39db86c3e33760e972c9efd7a29feed29",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    },
+    "slides": {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "digest": "sha256:3af85b71e83372ffa48d4adc7faf5d7d9a273b9df9bea668814cf5156371b9bd",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    },
+    "ui-styling": {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "digest": "sha256:679f879a04363cd8e0a288f4c2d4c7e620d53ba68910fb53041527bf49bb0228",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    },
+    "ui-ux-pro-max": {
+      "source": "github:nextlevelbuilder/ui-ux-pro-max-skill",
+      "digest": "sha256:55cfa21f73e0d1e460f9c49dd1dc98f24154011e44815a88dfa5da2046d521d6",
+      "agents": [
+        "antigravity"
+      ],
+      "mode": {
+        "antigravity": "symlink"
+      }
+    }
+  }
+}

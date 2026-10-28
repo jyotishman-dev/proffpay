@@ -1,0 +1,23 @@
+{
+ "name": "@proofpay/worker",
+ "module": "index.ts",
+ "type": "module",
+ "private": true,
+ "devDependencies": {
+  "@types/bun": "latest"
+ },
+ "peerDependencies": {
+  "typescript": "^7"
+ },
+ "scripts": {
+  "dev": "nodemon --exec tsx src/index.ts"
+ },
+ "dependencies": {
+  "@proofpay/db": "workspace:*",
+  "@proofpay/queue": "workspace:*",
+  "@proofpay/shared": "workspace:*",
+  "@proofpay/verifier": "workspace:*",
+  "nodemon": "^3.1.14",
+  "tsx": "^4.23.15"
+ }
+}

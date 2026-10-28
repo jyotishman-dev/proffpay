@@ -1,0 +1,18 @@
+{
+   "name": "@proofpay/llm",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.3.0",
+    "@proofpay/shared": "workspace:*",
+    "zod": "^4.6.7"
+  }
+}
