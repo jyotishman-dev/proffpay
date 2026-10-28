@@ -18,6 +18,7 @@ const io  = new  Server(httpServer , {
 })
 
 io.on("connection", (socket)=>{
+   
     socket.on("job:watch"  ,  (jobId : string) => socket.join(`job:${jobId}`))
 })
 

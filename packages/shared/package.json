@@ -1,12 +1,20 @@
 {
-  "name": "shared",
+  "name": "@proofpay/shared",
   "module": "index.ts",
   "type": "module",
+  "types": "src/index.ts",
+  "main": "src/index.ts",
   "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^7"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "exports": {
+    "." : "./src/index.ts"
   }
 }

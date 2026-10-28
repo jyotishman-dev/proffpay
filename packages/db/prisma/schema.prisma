@@ -13,3 +13,94 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+
+enum JobState {
+  DRAFT
+  FUNDED
+  SUBMITTED
+  VERIFYING
+  PASSED
+  FAILED
+  NEEDS_REVIEW
+  RELEASED
+  REFUNDED
+}
+
+
+enum Verdict {
+  PASS
+  FAIL
+  UNSURE
+}
+
+enum LedgerType {
+  FUND
+  RELEASE
+  REFUND
+}
+
+
+model Job {
+  id            String       @id @default(cuid())
+  title         String
+  brief         String
+  budgetCents   Int
+  currency      String       @default("USD")
+  state         JobState     @default(DRAFT)
+  checklist     Json
+  paypalOrderId String?      @unique
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  submissions   Submission[]
+  ledger        LedgerEntry[]
+}
+
+
+
+model Submission {
+  id        String               @id @default(cuid())
+  jobId     String
+  job       Job                  @relation(fields: [jobId], references: [id])
+  url       String
+  createdAt DateTime             @default(now())
+  results   VerificationResult[]
+
+  @@index([jobId])
+}
+
+
+model VerificationResult {
+  id           String     @id @default(cuid())
+  submissionId String
+  submission   Submission @relation(fields: [submissionId], references: [id])
+  itemId       String     // matches a checklist item id
+  verdict      Verdict
+  explanation  String
+  confidence   Float?
+  evidence     Json       // screenshot paths, extracted facts
+  createdAt    DateTime   @default(now())
+
+  @@index([submissionId])
+}
+
+
+model LedgerEntry {
+  id             String     @id @default(cuid())
+  jobId          String
+  job            Job        @relation(fields: [jobId], references: [id])
+  type           LedgerType
+  amountCents    Int
+  idempotencyKey String     @unique
+  paypalRef      String?
+  createdAt      DateTime   @default(now())
+
+  @@index([jobId])
+}
+
+model WebhookEvent {
+  id          String   @id 
+  type        String
+  processedAt DateTime @default(now())
+}
+
