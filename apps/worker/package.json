@@ -10,14 +10,12 @@
   "typescript": "^7"
  },
  "scripts": {
-  "dev": "nodemon --exec tsx src/index.ts"
+  "dev": "bun --watch src/index.ts"
  },
  "dependencies": {
   "@proofpay/db": "workspace:*",
   "@proofpay/queue": "workspace:*",
   "@proofpay/shared": "workspace:*",
-  "@proofpay/verifier": "workspace:*",
-  "nodemon": "^3.1.14",
-  "tsx": "^4.23.15"
+  "@proofpay/verifier": "workspace:*"
  }
 }

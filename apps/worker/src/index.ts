@@ -1,5 +1,5 @@
 // apps/worker/src/index.ts
-import { transitionJob } from "@proofpay/db";
+import { prisma, transitionJob } from "@proofpay/db";
 import {
   createConnection,
   publishJobEvent,
@@ -19,16 +19,24 @@ worker.on("failed", async (job, err) => {
   console.error("verification error:", err.message);
   if (job && job.attemptsMade >= (job.opts.attempts ?? 1)) {
     try {
+      const current = await prisma.job.findUnique({ where: { id: job.data.jobId } });
+      if (current?.state === "SUBMITTED") {
+        await transitionJob(job.data.jobId, "SUBMITTED", "VERIFYING");
+      }
       await transitionJob(job.data.jobId, "VERIFYING", "NEEDS_REVIEW");
       await publishJobEvent({
         jobId: job.data.jobId,
         type: "verification.finished",
         data: { state: "NEEDS_REVIEW", error: err.message },
       });
-    } catch {
-      // job wasn't in VERIFYING; nothing to hand off
+    } catch (e) {
+      console.error("failed to transition job to NEEDS_REVIEW:", e);
     }
   }
+});
+
+worker.on("error", (err) => {
+  console.error("worker queue error:", err);
 });
 
 console.log("worker listening on queue:", VERIFY_QUEUE);
