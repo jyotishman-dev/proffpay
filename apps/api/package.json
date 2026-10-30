@@ -1,10 +1,11 @@
 {
-  "name": "server",
-  "module": "index.ts",
+  "name": "@proofpay/api",
+  "module": "src/index.ts",
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "socket.io-client": "^4.8.4"
   },
   "peerDependencies": {
     "typescript": "^7"
@@ -13,6 +14,9 @@
     "dev": "nodemon --exec tsx index.ts"
   },
   "dependencies": {
+    "@proofpay/db": "workspace:*",
+    "@proofpay/queue": "workspace:*",
+    "@proofpay/shared": "workspace:*",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/socket.io": "^3.0.2",
@@ -22,6 +26,7 @@
     "jsonwebtoken": "^9.0.3",
     "nodemon": "^3.1.14",
     "socket.io": "^4.8.4",
-    "tsx": "^4.23.15"
+    "tsx": "^4.23.15",
+    "zod": "^4.6.7"
   }
 }
